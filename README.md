@@ -4,6 +4,10 @@
 
 ![游戏截图](screenshot.png)
 
+## 在线试玩
+
+👉 **https://aiuonly.github.io/twenty-four-game/**
+
 ## 怎么玩
 
 1. 点一张数字卡片，选中它。
