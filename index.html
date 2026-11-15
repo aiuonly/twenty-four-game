@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <meta name="description" content="适合小朋友的 24 点数学练习小游戏：用加减乘除把四张数字卡片凑成 24。">
+  <meta name="theme-color" content="#fff7ec">
+  <title>24点小达人 · 数学练习小游戏</title>
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='0.9em' font-size='90'%3E%F0%9F%8E%AF%3C/text%3E%3C/svg%3E">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="app">
+    <header class="header">
+      <div class="brand">
+        <div class="logo" aria-hidden="true">🎯</div>
+        <div>
+          <h1>24点小达人</h1>
+          <p>用 + − × ÷ 把四张牌凑成 24</p>
+        </div>
+      </div>
+      <div class="header-actions">
+        <button class="icon-btn" id="soundBtn" type="button" aria-label="关闭声音">🔊</button>
+        <button class="icon-btn" id="helpBtn" type="button" aria-label="玩法说明">❓</button>
+      </div>
+    </header>
+
+    <div class="toolbar">
+      <div class="levels" id="levels" role="group" aria-label="难度选择">
+        <button class="level active" type="button" data-level="easy" aria-pressed="true" title="数字 1–9，只需要 + − ×">简单</button>
+        <button class="level" type="button" data-level="medium" aria-pressed="false" title="数字 1–10，加减乘除都能用">中等</button>
+        <button class="level" type="button" data-level="hard" aria-pressed="false" title="数字 1–13，加减乘除都能用">困难</button>
+      </div>
+      <div class="score-group">
+        <div class="score-chip" title="一共成功的题数">🏆 成功 <b id="solvedCount">0</b> 题</div>
+        <div class="score-chip streak-chip" id="streakChip" hidden title="连续答对的题数">🔥 连续 <b id="streakCount">0</b></div>
+      </div>
+    </div>
+
+    <main class="main">
+      <div class="board" id="board" role="group" aria-label="数字卡片"></div>
+
+      <div class="stages">
+        <div class="ops" id="ops" role="group" aria-label="运算符号">
+          <button class="op op-add" type="button" data-op="+" aria-label="加号">+</button>
+          <button class="op op-sub" type="button" data-op="-" aria-label="减号">−</button>
+          <button class="op op-mul" type="button" data-op="×" aria-label="乘号">×</button>
+          <button class="op op-div" type="button" data-op="÷" aria-label="除号">÷</button>
+        </div>
+
+        <div class="actions">
+          <button class="action" id="undoBtn" type="button" disabled>↩︎ 撤销</button>
+          <button class="action" id="resetBtn" type="button">🔁 重来</button>
+          <button class="action" id="hintBtn" type="button">💡 提示</button>
+          <button class="action primary" id="newBtn" type="button">🎲 换一题</button>
+        </div>
+      </div>
+
+      <p class="tip" id="tip" aria-live="polite">先点一张数字卡片，再选符号，然后点另一张卡片</p>
+    </main>
+
+    <footer class="footer">每个数字都要用一次 · 适合 6 岁以上 · 按 Esc 可关闭弹窗</footer>
+  </div>
+
+  <div class="modal" id="modal" hidden>
+    <div class="modal-card" role="dialog" aria-modal="true" aria-label="提示与说明">
+      <button class="modal-close" id="modalClose" type="button" aria-label="关闭">✕</button>
+      <div id="modalBody"></div>
+    </div>
+  </div>
+
+  <div class="confetti-layer" id="confetti" aria-hidden="true"></div>
+
+  <script src="solver.js"></script>
+  <script src="game.js"></script>
+</body>
+</html>

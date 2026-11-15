@@ -1,0 +1,9 @@
+{
+  "name": "twenty-four-game",
+  "version": "1.0.0",
+  "private": true,
+  "description": "适合小朋友练习 24 点的数学小游戏",
+  "scripts": {
+    "test": "node --test test/solver.test.js"
+  }
+}
